@@ -8,11 +8,13 @@ export default class CreateUser extends Component {
 
         this.state = {
             username: '',
-            email: ''
+            email: '',
+            persona: ''
         }
 
         this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
+        this.onChangePersona = this.onChangePersona.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
     
@@ -24,12 +26,17 @@ export default class CreateUser extends Component {
         this.setState({ email: event.target.value });
     }
 
+    onChangePersona(event) {
+        this.setState({ persona: event.target.value });
+    }
+
     onSubmit(e) {
         e.preventDefault();
 
         const newUser = {
             username: this.state.username,
-            email: this.state.email
+            email: this.state.email,
+            persona: this.state.persona
         }
 
         axios.post('http://localhost:4000/add', newUser)
@@ -37,7 +44,8 @@ export default class CreateUser extends Component {
 
         this.setState({
             username: '',
-            email: ''
+            email: '',
+            persona: ''
         });
     }
 
@@ -59,6 +67,14 @@ export default class CreateUser extends Component {
                                className="form-control" 
                                value={this.state.email}
                                onChange={this.onChangeEmail}
+                               />  
+                    </div>
+                    <div className="form-group">
+                        <label>Persona: </label>
+                        <input type="text" 
+                               className="form-control" 
+                               value={this.state.persona}
+                               onChange={this.onChangePersona}
                                />  
                     </div>
                     <div className="form-group">

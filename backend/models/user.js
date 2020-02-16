@@ -6,6 +6,9 @@ let User = new mongoose.Schema({
     },
     email: {
         type: String
+    },
+    persona: {
+    	type: String
     }
 });
 
