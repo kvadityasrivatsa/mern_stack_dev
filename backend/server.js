@@ -8,6 +8,7 @@ const PORT = 4000;
 const userRoutes = express.Router();
 
 let User = require('./models/user');
+let Product = require('./models/product');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -51,6 +52,30 @@ userRoutes.route('/:id').get(function(req, res) {
         res.json(user);
     });
 });
+
+// Getting a user by username
+userRoutes.route('/login').post(function(req, res) {
+    let username = req.body.username;
+    let password = req.body.password;
+    var query = User.findOne({ 'username': username})
+    query.select("password");
+    query.exec()
+        .then(queryresult => {
+            queryresult.password == password ? res.json({"auth":"verified"}) : res.json({"auth":"invalid"})
+        });
+});
+
+// // Adding a new Product
+// userRoutes.route('/vendor-dashboard/username/addproduct').post(function(req, res) {
+//     let product = new Product(req.body);
+//     product.save()
+//         .then(product => {
+//             res.status(200).json({'Product': 'Product added successfully'});
+//         })
+//         .catch(err => {
+//             res.status(400).send('Error');
+//         });
+// });
 
 app.use('/', userRoutes);
 

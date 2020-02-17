@@ -9,6 +9,9 @@ let User = new mongoose.Schema({
     },
     persona: {
     	type: String
+    },
+    password: {
+    	type: String
     }
 });
 

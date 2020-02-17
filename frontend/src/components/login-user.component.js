@@ -1,20 +1,18 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-export default class CreateUser extends Component {
+export default class LoginUser extends Component {
     
     constructor(props) {
         super(props);
 
         this.state = {
             username: '',
-            email: '',
             persona: '',
             password: ''
         }
 
         this.onChangeUsername = this.onChangeUsername.bind(this);
-        this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangePersona = this.onChangePersona.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -22,10 +20,6 @@ export default class CreateUser extends Component {
     
     onChangeUsername(event) {
         this.setState({ username: event.target.value });
-    }
-
-    onChangeEmail(event) {
-        this.setState({ email: event.target.value });
     }
 
     onChangePersona(event) {
@@ -41,17 +35,22 @@ export default class CreateUser extends Component {
 
         const newUser = {
             username: this.state.username,
-            email: this.state.email,
             persona: this.state.persona,
             password: this.state.password
         }
 
-        axios.post('http://localhost:4000/add', newUser)
-             .then(res => console.log(res.body));
+        axios.post('http://localhost:4000/login', newUser)
+             .then(res => {
+                res.data.auth == "verified" ? console.log("hogawa") : console.log("katle");
+                localStorage.setItem('username',newUser.username);
+                localStorage.setItem('persona',newUser.persona);
+                localStorage.setItem('login','success');
+                // console.log(localStorage.getItem('username'));
+                // console.log(localStorage.getItem('persona'));
+             });
 
         this.setState({
             username: '',
-            email: '',
             persona: '',
             password: ''
         });
@@ -70,14 +69,6 @@ export default class CreateUser extends Component {
                                />
                     </div>
                     <div className="form-group">
-                        <label>Email: </label>
-                        <input type="text" 
-                               className="form-control" 
-                               value={this.state.email}
-                               onChange={this.onChangeEmail}
-                               />  
-                    </div>
-                    <div className="form-group">
                         <label>Persona: </label>
                         <input type="text" 
                                className="form-control" 
@@ -94,7 +85,7 @@ export default class CreateUser extends Component {
                                />  
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Create User" className="btn btn-primary"/>
+                        <input type="submit" value="Submit" className="btn btn-primary"/>
                     </div>
                 </form>
             </div>
