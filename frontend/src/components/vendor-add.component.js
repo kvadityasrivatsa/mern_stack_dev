@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-export default class AddProduct extends Component {
+export default class VendorAddProduct extends Component {
     
     constructor(props) {
         super(props);
@@ -41,8 +41,10 @@ export default class AddProduct extends Component {
             quantity: this.state.quantity
         }
 
-        axios.post("http://localhost:4000/vendor-dashboard"+localStorage.getItem(username)+"/vendor-add", newProduct)
+        axios.post("http://localhost:4000/vendor-add-product", newProduct)
              .then(res => console.log(res.body));
+
+        console.log(newProduct.name)
 
         this.setState({
             name: '',
@@ -65,7 +67,7 @@ export default class AddProduct extends Component {
                     </div>
                     <div className="form-group">
                         <label>Price: </label>
-                        <input type="text" 
+                        <input type="number" 
                                className="form-control" 
                                value={this.state.email}
                                onChange={this.onChangePrice}
@@ -73,7 +75,7 @@ export default class AddProduct extends Component {
                     </div>
                     <div className="form-group">
                         <label>Quantity: </label>
-                        <input type="text" 
+                        <input type="number" 
                                className="form-control" 
                                value={this.state.persona}
                                onChange={this.onChangeQuantity}

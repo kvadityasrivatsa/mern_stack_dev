@@ -41,12 +41,28 @@ export default class LoginUser extends Component {
 
         axios.post('http://localhost:4000/login', newUser)
              .then(res => {
-                res.data.auth == "verified" ? console.log("hogawa") : console.log("katle");
-                localStorage.setItem('username',newUser.username);
-                localStorage.setItem('persona',newUser.persona);
-                localStorage.setItem('login','success');
-                // console.log(localStorage.getItem('username'));
-                // console.log(localStorage.getItem('persona'));
+                // res.data.auth == "verified" ? console.log("hogawa") : console.log("katle");
+                if(res.data.auth == "verified")
+                {
+                    window.alert("Login Successful!");
+                    localStorage.setItem('username',newUser.username);
+                    localStorage.setItem('persona',newUser.persona);
+                    localStorage.setItem('login','success');
+                    console.log(localStorage.getItem('login'));
+                    console.log(localStorage.getItem('persona'));
+                    // window.location.assign('http://localhost:3000/');
+                }
+                
+                else
+                {
+                    window.alert("Login Failed!");
+                    localStorage.setItem('username',"INVALID");
+                    localStorage.setItem('persona',"INVALID");
+                    localStorage.setItem('login',"INVALID");                    
+                    // window.location.assign('http://localhost:4000/login');
+                }
+
+
              });
 
         this.setState({
