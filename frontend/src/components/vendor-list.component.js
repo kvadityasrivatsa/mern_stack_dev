@@ -1,24 +1,20 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-export default class VendorProductList extends Component {
+export default class VendorList extends Component {
     
     constructor(props) {
         super(props);
-        this.state = {products: []};
-    }
 
-    componentDidMount() {
-        axios.get('http://localhost:4000/vendor-product-list')
-             .then(response => {
-                if(response.data != '')
-                    this.setState({products: response.data});
-                else
-                    console.log("no data");
-             })
-             .catch(function(error) {
-                 console.log(error);
-             })
+        this.state = {products:[]};
+    }
+    
+    componentDidMount(){
+        axios.post("http://localhost:4000/vendor/lists", {vname:localStorage.getItem('username')})
+             .then(res => {
+                console.log(res.data);
+                this.setState({products:res.data});
+            });   
     }
 
     render() {
@@ -27,9 +23,10 @@ export default class VendorProductList extends Component {
                 <table className="table table-striped">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Product Name</th>
                             <th>Price</th>
                             <th>Quantity</th>
+                            <th>Vname</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,6 +37,7 @@ export default class VendorProductList extends Component {
                                     <td>{currentProduct.name}</td>
                                     <td>{currentProduct.price}</td>
                                     <td>{currentProduct.quantity}</td>
+                                    <td>{currentProduct.vname}</td>
                                 </tr>
                             )
                         })

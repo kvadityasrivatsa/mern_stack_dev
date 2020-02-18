@@ -11,7 +11,8 @@ export default class VendorAddProduct extends Component {
             price: '',
             quantity: '',
             cur_quant: '',
-            status: ''
+            status: '',
+            vname: ''
         }
 
         this.onChangeName = this.onChangeName.bind(this);
@@ -38,18 +39,22 @@ export default class VendorAddProduct extends Component {
         const newProduct = {
             name: this.state.name,
             price: this.state.price,
-            quantity: this.state.quantity
+            quantity: this.state.quantity,
+            vname: localStorage.getItem("username")
         }
 
         axios.post("http://localhost:4000/vendor-add-product", newProduct)
-             .then(res => console.log(res.body));
+             .then(res => console.log(res.data));
 
         console.log(newProduct.name)
 
         this.setState({
             name: '',
             price: '',
-            quantity: ''
+            quantity: '',
+            cur_quant: '',
+            status: '',
+            vname: localStorage.getItem("username")
         });
     }
 

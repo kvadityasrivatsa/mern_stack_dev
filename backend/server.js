@@ -77,26 +77,28 @@ userRoutes.route('/vendor-add-product').post(function(req, res) {
         });
 });
 
-userRoutes.route('/vendor/lists').get(function(req, res) {
+userRoutes.route('/vendor/lists').post(function(req, res) {
     console.log("mebhe aaya");
-    var query1 = Product.find({ username:req.query.username });
-    query1.select("name price quantity");
+    let vendor_name = req.body.vname;
+    console.log(vendor_name)
+    var query1 = Product.find({'vname':vendor_name});
+    query1.select("name price quantity vname");
     query1.exec().then(products => res.json(products));
 });
 
 
-// Getting all the products
-userRoutes.route('/vendor-product-list').get(function(req, res) {
-    console.log("bhagwaan");
-    let product = new Product(req.body);
-    product.save()
-        .then(product => {
-            res.status(200).json({'Product': 'Product added successfully'});
-        })
-        .catch(err => {
-            res.status(400).send('Error');
-        });
-});
+// // Getting all the products
+// userRoutes.route('/vendor-product-list').get(function(req, res) {
+//     console.log("bhagwaan");
+//     let product = new Product(req.body);
+//     product.save()
+//         .then(product => {
+//             res.status(200).json({'Product': 'Product added successfully'});
+//         })
+//         .catch(err => {
+//             res.status(400).send('Error');
+//         });
+// });
 
 app.use('/', userRoutes);
 app.listen(PORT, function() {

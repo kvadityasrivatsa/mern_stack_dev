@@ -15,6 +15,9 @@ let Product = new mongoose.Schema({
     },
     status: {
     	type: String
+    },
+    vname: {
+        type: String
     }
 });
 

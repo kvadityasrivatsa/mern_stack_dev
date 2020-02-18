@@ -8,7 +8,7 @@ import LoginUser from './components/login-user.component'
 import ProductList from './components/login-user.component'
 import VendorAddProduct from './components/vendor-add.component'
 import VendorProductList from './components/vendor-list.component'
-import MeBhe from './components/mebhe.component'
+import VendorList from './components/vendor-list.component'
 
 function App() { 
   if(localStorage.getItem('login')=="success" && localStorage.getItem('persona')=="vendor")
@@ -20,14 +20,14 @@ function App() {
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav mr-auto">
               <li className="navbar-item">
-                <Link to="/" className="nav-link">HAHA</Link>
+                <Link to="/" className="nav-link">User List</Link>
               </li>
               <li className="navbar-item">
                 <Link to="/vendor-add-product" className="nav-link">Add Product</Link>
               </li>
               <li className="navbar-item">
                 <Link to="/vendor-product-list" className="nav-link">Product List</Link>
-              </li>
+              </li>            
             </ul>
           </div>
         </nav>
@@ -38,7 +38,7 @@ function App() {
         <Route path="/create" component={CreateUser}/>
         <Route path="/login" component={LoginUser}/>
         <Route path="/vendor-product-list" component={VendorProductList}/>
-        <Route path="/vendor/lists" component={MeBhe}/>
+        <Route path="/vendor/lists" component={VendorList}/>
       </div>
     </Router>
   ); 
