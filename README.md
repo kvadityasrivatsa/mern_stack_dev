@@ -1,8 +1,4 @@
 # mern_stack_dev
-=========================\n
-	 :: MineCart™ ::
-=========================\n
-
 Welcome to MineCart™!
 
 Ever felt you wanna order your college supllies but there are too costly for the small number of products you want? We present to you, MineCart™, a college-wide e-commerce application.
