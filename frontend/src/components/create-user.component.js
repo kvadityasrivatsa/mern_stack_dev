@@ -83,7 +83,7 @@ export default class CreateUser extends Component {
                                className="form-control" 
                                value={this.state.persona}
                                onChange={this.onChangePersona}
-                               />  
+                               /> 
                     </div>
                     <div className="form-group">
                         <label>Password: </label>
