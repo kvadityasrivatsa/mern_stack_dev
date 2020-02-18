@@ -50,7 +50,6 @@ export default class LoginUser extends Component {
                     localStorage.setItem('login','success');
                     console.log(localStorage.getItem('login'));
                     console.log(localStorage.getItem('persona'));
-                    window.access("http://localhost:4000/vendor-product-list");
                     // window.location.assign('http://localhost:3000/');
                 }
                 
@@ -95,7 +94,7 @@ export default class LoginUser extends Component {
                     </div>
                     <div className="form-group">
                         <label>Password: </label>
-                        <input type="text" 
+                        <input type="password" 
                                className="form-control" 
                                value={this.state.password}
                                onChange={this.onChangePassword}
