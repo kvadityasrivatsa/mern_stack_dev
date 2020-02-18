@@ -1,7 +1,7 @@
 # mern_stack_dev
 Welcome to MineCart™!
 
-Ever felt you wanna order your college supllies but there are too costly for the small number of products you want? We present to you, MineCart™, a college-wide e-commerce application.
+Ever felt you wanna order your college supllies but they are too costly for the small number of products you want? We present to you, MineCart™, a college-wide e-commerce application.
 Its sole goal: to get people who want to buy similar products, to order a single shipment to reduce per item price.
 
 Although still under development, given below is the current structure of the application.
@@ -37,8 +37,8 @@ Although still under development, given below is the current structure of the ap
 		- Current Quantity fulfilled
 		- Status
 
-Although there's still a long way to go, MineCart™ keep being developed, and hopefully 
-come to the rescue in solving the age old problem of hostel dwellers ;)
+Although there's still a long way to go, MineCart™ will keep being developed, and hopefully 
+come to the rescue of the histel dwellers in solving this age old problem ;)
 
-NOTICE: All rights of MineCart™ are researved solely by KV Aditya Srivatsa®. Any attempt at 
+NOTICE: All rights of MineCart™ are reserved solely by KV Aditya Srivatsa®. Any attempts at 
 		plagiarism will be dealt with serious repercussions.
