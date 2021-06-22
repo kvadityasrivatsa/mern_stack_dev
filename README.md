@@ -38,7 +38,7 @@ Although still under development, given below is the current structure of the ap
 		- Status
 
 Although there's still a long way to go, MineCart™ will keep being developed, and hopefully 
-come to the rescue of the histel dwellers in solving this age old problem ;)
+come to the rescue of the hostel dwellers in solving this age old problem ;)
 
 NOTICE: All rights of MineCart™ are reserved solely by KV Aditya Srivatsa®. Any attempts at 
 		plagiarism will be dealt with serious repercussions.
